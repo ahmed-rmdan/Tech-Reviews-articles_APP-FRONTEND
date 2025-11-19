@@ -1,4 +1,4 @@
-import { Header } from "@/components/header";
+import { Header } from "@/components/header/header";
 import { Footer } from "@/components/footer/footer";
 import { HeaderDashboard } from "@/components/admin/headers/adminheader"
 import { Dashboard } from "@/components/admin/dashboard/dashboard";

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { SlidersHorizontal } from 'lucide-react';
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+
 export const Filter:React.FC<{type:string,filter:string,search?:string}>=(props)=>{
       const router=useRouter()
 const [clicked,setclicked]=useState<boolean>(false)
@@ -16,6 +17,15 @@ function onselect(elm:string){
     if(props.filter==='searchpostsadmin'){
       router.push(`/dashboard/posts/search?search=${props.search}&activepage=1&sort=${elm}`)
   }
+if(props.filter==='posts'){
+ 
+   location.href=`/blog?sort=${elm}`
+}
+    if(props.filter==='searchposts'){
+      location.href=`/blog/search?search=${props.search}&sort=${elm}`
+  }
+  
+  
 }
 return(
  

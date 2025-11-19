@@ -26,7 +26,6 @@ const router=useRouter()
     mainimage:z.any(),
     content:z.string(),
     mainslider:z.boolean()
-
   })
 
   type formfield=z.infer<typeof schema>

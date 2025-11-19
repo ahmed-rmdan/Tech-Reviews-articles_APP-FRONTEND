@@ -1,7 +1,6 @@
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
@@ -10,9 +9,9 @@ import {
 import { FC } from "react"
 
 
+
+
 export const Pages:FC<{activepage:number,noposts:number,types:string,sort:string,search?:string}>=(props)=>{
-
-
 
  const nopages=Math.ceil(props.noposts/6) 
  

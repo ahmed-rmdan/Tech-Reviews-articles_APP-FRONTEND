@@ -6,10 +6,10 @@ import Link from "next/link";
 export const ItemSlider:React.FC<{title:string,description:string,image:string,id:string}>=(props)=>{
     
 
-
+console.log(props.title)
 console.log(props.image)
 return(
-           <li  className="min-h-full min-w-full relative flex flex-col-reverse items-center text-[#cb1b16] rounded-2xl">
+           <li  key={props.id}  className="min-h-full min-w-full relative flex flex-col-reverse items-center text-[#cb1b16] rounded-2xl">
                     <Image alt={props.title} fill src={props.image} className=" absolute top-0 min-w-full min-h-full rounded-2xl ">
                                
                     </Image>

@@ -1,7 +1,9 @@
 import { createSlice ,configureStore} from "@reduxjs/toolkit";
-import { postsadminreduicer } from "./reducers/postsadmin";
+import { postsadminreduicer } from "./reducers/posts";
+import type { post } from "@/types/types";
 
-const postsadminslice=createSlice({name:'pages',initialState:{noposts:0,nopages:1,activepage:1},reducers:postsadminreduicer})
+
+const postsadminslice=createSlice({name:'posts',initialState:{posts:[] as post[],activepage:1},reducers:postsadminreduicer})
 
 export const postsadminactions=postsadminslice.actions
 

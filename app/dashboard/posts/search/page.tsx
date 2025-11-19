@@ -26,7 +26,7 @@ export default  async function  PostControl({searchParams }:{searchParams:{activ
     <div className=" min-w-full sm:min-w-[75%]  flex-col   flex items-center justify-center p-4 gap-[15px] sm:gap-[25px] " >
 
        <div className="flex flex-row w-full sm:w-full lg:w-[90%] xl:w-[70%] justify-center items-center h-[55px] sm:h-[80px] gap-[11px] sm:gap-[20px]">
-             <Searchinput></Searchinput>
+             <Searchinput type="searchpostsadmin" ></Searchinput>
             <Filter type="blog" filter="searchpostsadmin" search={searchParams.search}></Filter>
                    </div>         
                       <div className="flex flex-col w-[99%] sm:w-[90%] xl:w-[75%] gap-[20px] items-center justify-around   ">

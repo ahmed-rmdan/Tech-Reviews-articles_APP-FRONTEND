@@ -7,7 +7,7 @@ import { AlignJustify } from 'lucide-react';
 import { useState,useEffect } from "react";
 import {motion} from 'framer-motion'
 import { AnimatePresence } from "framer-motion";
-import { Searchinput } from "./global/search";
+import { Searchinput } from "../global/search";
 import { UserRoundPen } from 'lucide-react';
 import { Bookmark } from 'lucide-react';
 import { ThumbsUp } from 'lucide-react';
@@ -16,7 +16,7 @@ import { LogOut } from 'lucide-react';
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { CardLogin } from "./user/login";
+import { CardLogin } from "../user/login";
 
 import { House } from 'lucide-react';
 import { Search } from 'lucide-react';
@@ -26,9 +26,11 @@ import { Sun } from 'lucide-react';
 import { Moon } from 'lucide-react';
 import { User } from 'lucide-react';
 import Image from "next/image";
-import { Profile } from "./user/profile";
+import { Profile } from "../user/profile";
 
 import { useRouter } from "next/navigation";
+
+import { SearchHeader } from "./searchheader";
 
 export function Header(){
     const router=useRouter()
@@ -59,6 +61,8 @@ function handlenavigate(input:string){
 }
 function handlesearch(){
   setsearch(prev=>!prev)
+
+
 }
 
 if(width>=768){
@@ -74,7 +78,7 @@ return(
                     </div>
                      <div className="flex flex-row gap-[5px] items-center">
                       <Newspaper size={'1.4em'}></Newspaper>
-                      <Link  href={'/blog'} className="hover:underline hover:cursor-pointer text-[1.1em]" > Blog</Link>
+                      <Link  href={'/blog?sort=Newest'} className="hover:underline hover:cursor-pointer text-[1.1em]" > Blog</Link>
                     </div>
                           <div className="flex flex-row gap-[5px] items-center">
                       <Star size={'1.4em'}></Star>
@@ -124,14 +128,7 @@ return(
                    
                     
               </div>
-      {    search &&  <div className=" absolute flex flex-row top-[80px] lg:top-[100px] items-center justify-center sm:right-[70px] right-[150px] 2xl:right-[250px]
-       gap-[10px] bg-[#e5e7eb]  w-[350px] h-[50px]">
-                         <Input type="text" className=" border-[#cb1b16] text-[4em] w-[67%] border-2 text-[#cb1b16] bg-white "  />
-                          <Button type="submit" variant="outline" className=" bg-[#cb1b16] hover:bg-[#cb1b16] text-[3em]  w-[25%]
-                           hover:cursor-pointer hover:text-white " >
-                                 <Search className="w-[25%] " ></Search> Search
-                            </Button>
-                </div>}
+      {    search && <SearchHeader></SearchHeader> }
                                    
            </nav>
     )
@@ -186,7 +183,7 @@ else {
                            </div>
                               <div className="flex flex-row gap-[5px] items-center">
                                 <Newspaper size={'1.4em'}></Newspaper>
-                               <Link href={'/blog'}  onClick={()=>{handlenavigate('3')}} className="hover:underline hover:cursor-pointer text-[1.1em]" > Blog</Link>
+                               <Link href={'/blog?sort=Newest'}  onClick={()=>{handlenavigate('3')}} className="hover:underline hover:cursor-pointer text-[1.1em]" > Blog</Link>
                            </div>
                            
                               <div className="flex flex-row gap-[5px] items-center">

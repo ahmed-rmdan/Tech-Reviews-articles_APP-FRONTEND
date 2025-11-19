@@ -8,17 +8,15 @@ import { MessageCircle } from 'lucide-react';
 export const ItemPost:React.FC<{title:string,description:string,image:string,date:Date,watches:number,likes:number,comments:number,id:string}>=(props)=>{
     
 
-
-
 return(
-           <div className=" h-[170px] sm:h-[250px] w-[99%] sm:w-[90%] xl:w-[60%]      bg-white relative flex flex-row items-center justify-between rounded-[5px] text-[#cb1b16] ">
+           <div className=" h-[170px] sm:h-[200px] w-[99%] sm:w-[90%] xl:w-[60%]  bg-white relative flex flex-row items-center justify-between rounded-[5px] text-[#cb1b16] ">
 
 
-                      <div className="w-[30%] h-[95%]  relative rounded-[5px]  ">
+                <div className="w-[30%] h-[95%]  relative rounded-[5px]  ">
                           <Image alt={props.title} fill src={props.image} className=" absolute top-0 min-w-full min-h-full rounded-[5px] ">
                                
                           </Image>                   
-                    </div>
+              </div>
                         
                      <div className="w-[68%] h-[97%]   flex flex-col item-center justify-center ">
                            <div className="w-full h-[70%] flex flex-col">

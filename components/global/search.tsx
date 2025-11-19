@@ -3,12 +3,18 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Search } from "lucide-react"
 import { useRouter } from "next/navigation" 
-export  function Searchinput(){
+export  function Searchinput({type}:{type:string}){
     const router=useRouter()
 
 function handlesubmit(data:FormData){
 const search=data.get('search')
+if(type==='searchpostsadmin'){
 router.push(`/dashboard/posts/search?search=${search}&activepage=1&sort=all`)
+}
+if(type==='searchposts'){
+location.href=`/blog/search?search=${search}&sort=Newest`
+}
+
 
 }
 return(
