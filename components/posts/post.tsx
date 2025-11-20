@@ -45,21 +45,13 @@ return(
                               <div className="w-[85%] h-[300px] relative self-center mt-[10px]">                                     
                                        <Image fill alt={props.title} src={props.image} className="absolute top-0 "></Image>
                               </div>
-                              <p className="text-[5em] leading-normal break-words w-[85%] self-center mt-[20px]">
+                              <p className="text-[5em] leading-normal break-words w-[85%] self-center mt-[20px] whitespace-pre-line">
                                   {props.content}
                               </p>
                               <div className="w-[25%] items-center justify-center flex flex-row text-[5em] mt-[30px] gap-[8px] ">
                                 <ThumbsUp size={'1.5em'} fill="black" className="hover:cursor-pointer"></ThumbsUp>
                                                 <span className="text-center font-bold">{props.likes}</span>
-                              </div>
-                                
-                               
-             
-                     
-                    
-           
-      
-                   
+                            </div>                      
                                    
            </div>
     )
