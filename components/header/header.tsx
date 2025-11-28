@@ -98,17 +98,17 @@ return(
                 
               </Link>
               <div className="flex flex-row relative items-center justify-center rounded-2xl w-[30%] gap-[13%]">
-               {/* {  sign&&  <div  onMouseLeave={()=>{setsign(prev=>false)}}  onMouseEnter={()=>{setsign(prev=>true)}} className=" absolute w-[300px] xl:w-[370px] h-[350px] 
+               {  sign&&  <div  onMouseLeave={()=>{setsign(prev=>false)}}  onMouseEnter={()=>{setsign(prev=>true)}} className=" absolute w-[300px] xl:w-[370px] h-[350px] 
                      right-[70px]  xl:right-[150px]  2xl:right-[220px] top-[30px] rounded-2xl bg-[#e5e7eb]">
                            <CardLogin></CardLogin>
-                   </div>} */}
-                 {/* <Link href={'/login'} onMouseEnter={()=>{
+                   </div>}
+                 <Link href={'/login'} onMouseEnter={()=>{
                   setsign(prev=>true)
                  }} className=" sm:text-[3em] lg:text-[3em] xl:text-[4.5em] self-center font-semibold hover:underline hover:cursor-pointer">
                  LogIn/SignUp
-                   </Link> */}
+                   </Link>
 
-
+{/* 
                  <Link href={'/user/profile'} onMouseEnter={()=>{
                   setprofile(prev=>true)
                  }} className="relative w-[45px] rounded-[180%] h-[45px] ">
@@ -118,7 +118,7 @@ return(
                {  profile&&  <div  onMouseLeave={()=>{setprofile(prev=>false)}}  onMouseEnter={()=>{setsign(prev=>true)}} className=" absolute w-[300px] xl:w-[370px] 
                      right-[70px]  xl:right-[130px]  2xl:right-[220px] top-[45px] rounded-2xl bg-[#e5e7eb]">
                           <Profile></Profile>
-                   </div>}                       
+                   </div>}                        */}
                 
                    {/* <User size={'8em'}></User> */}
                    <Search onClick={handlesearch} className=" hover:cursor-pointer" size={'7.5em'}></Search>

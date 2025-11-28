@@ -10,7 +10,4 @@ export const postsadminreduicer={
           return {posts:newposts,activepage:action.payload.activepage}       
     },
 
-
-
-
 }
