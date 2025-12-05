@@ -21,24 +21,74 @@ import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { toast } from "sonner"
+import { useRef } from "react"
+
 export function Profile() {
   const router=useRouter()
-  const {data,status}=useSession()
+  const {data,status,update}=useSession()
+  const file=useRef<null|HTMLInputElement>(null)
  async function  onclick(){
  await signOut({redirect:false})
   
  router.push('/')
  toast.success('you have been logged out')
  }
+ async function putimage(){
+    file.current?.click()
+ }
+
+async function handlechange(ev:React.ChangeEvent<HTMLInputElement>){
+  if(!ev.target.files){
+    return
+  }
+const selectedfile=ev.target.files[0]
+ const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+ if(!allowedTypes.includes(selectedfile.type)){
+ toast.error('file type is not allowed')
+  return
+   }
+  const userid= data?.user.id as string
+  const formdata= new FormData()
+  formdata.set('file',selectedfile)
+    console.log(formdata.get('file'))
+
+     try{
+    const res= await fetch(`http://localhost:5000/users/putuserimage?id=${userid}`,{
+         method:'PUT',
+                    body:formdata
+                })
+                const DATA=await res.json()
+                console.log(DATA)
+                if(!res.ok){
+                  throw new Error(DATA.message)
+                }
+              await update({image:DATA.image as string})
+              toast.success('profile mage has benn updated')
+     }catch(err){
+       const errmessg= err instanceof Error ?err.message:'somthing went wrong'
+        console.log(errmessg)
+     }
+  
+
+
+}
+
   return (
-    <Card className="w-full max-w-sm rounded-2xl">
+    <Card className="w-full relative max-w-sm rounded-2xl">
 
       <CardContent className="flex flex-col items-center gap-3">
-        <div className=" relative w-[170px] h-[170px] rounded-[180%] ">
+        <div className=" flex items-center justify-center relative w-[160px] h-[160px] rounded-[180%] ">
             <Image src={ !data?.user.image?'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png':data.user.image as string} 
-           width={170} height={170} alt="profilepic" className="rounded-[180%]" ></Image>
-           <SquarePen  size={'6.5em'} className="absolute top-[20px] right-[30px] cursor-pointer " color="#cb1b16"></SquarePen>
+           fill alt="profilepic" className="rounded-[180%]" ></Image>
+        
+ 
+                <input hidden ref={file}  onChange={handlechange} type="file"></input>
+  
+   
         </div>
+          <SquarePen onClick={putimage}   size={'6.5em'} className="absolute top-[20px] right-[65px] cursor-pointer " color="#cb1b16">
+        
+           </SquarePen>
         <h2 className="text-main font-bold text-[5em]">{data?.user.name}</h2>
            
       </CardContent>

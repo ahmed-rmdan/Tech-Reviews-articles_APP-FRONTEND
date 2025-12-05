@@ -39,18 +39,23 @@ const handler = NextAuth({
         return {
           id: finduser._id.toString(),
           email: finduser.email,
-          name:finduser.name
+          name:finduser.name,
+          image:finduser.image
         };
       },
     }),
   ],
 
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user ,trigger,session}) {
       if (user) {
         token.id = user.id;
         token.name=user.name
+         token.image=user.image
       }
+            if (trigger === "update" && session?.image) {
+                 token.image = session.image;   
+              }
       return token;
     },
 
@@ -59,6 +64,7 @@ const handler = NextAuth({
 
       session.user.id = token.id;
       session.user.name=token.name
+      session.user.image=token.image
       return session;
     },
   },

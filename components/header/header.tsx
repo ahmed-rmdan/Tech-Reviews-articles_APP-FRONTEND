@@ -199,7 +199,7 @@ else {
                       </div>}
                   {  data && <div className=" flex flex-col items-center gap-[30px] border-t-2 text-[1em] p-7 ">
                             <div className=" relative w-[50px] h-[50px] rounded-[180%]">
-                                <Image onClick={()=>router.push('/user/profile')}   src={'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'} 
+                                <Image onClick={()=>router.push('/user/profile')}   src={!data?.user.image?'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png':data.user.image as string} 
                                       alt="profilepic" fill className="rounded-[180%]" ></Image>
                                                               
                             </div>
