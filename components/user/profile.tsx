@@ -27,15 +27,23 @@ export function Profile() {
   const router=useRouter()
   const {data,status,update}=useSession()
   const file=useRef<null|HTMLInputElement>(null)
+
+
  async function  onclick(){
  await signOut({redirect:false})
-  
+  const confirm=window.confirm('you are logging out are you sure ?')
  router.push('/')
  toast.success('you have been logged out')
  }
+
+
+
+
  async function putimage(){
     file.current?.click()
  }
+
+
 
 async function handlechange(ev:React.ChangeEvent<HTMLInputElement>){
   if(!ev.target.files){

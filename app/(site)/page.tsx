@@ -1,5 +1,5 @@
-import { Metadata } from "next";
 
+import { Metadata } from "next";
 import { Slider } from "@/components/slider/slider";
 import { MainReviews } from "@/components/reviews/main";
 import { Trends } from "@/components/trend/trends";

@@ -56,6 +56,9 @@ const handler = NextAuth({
             if (trigger === "update" && session?.image) {
                  token.image = session.image;   
               }
+            if (trigger === "update" && session?.name) {
+                 token.name = session.name;   
+              }              
       return token;
     },
 

@@ -7,6 +7,7 @@ import { ItemSlider } from "./item";
 import { Taps } from "./taps";
 import type { post } from "@/types/types";
 import { Itemgroup } from "./itemgroup";
+
 export async function Slider(){
 
 
