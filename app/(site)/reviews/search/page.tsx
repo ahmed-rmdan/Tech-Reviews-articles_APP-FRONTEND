@@ -62,7 +62,7 @@ useEffect(()=>{
  let scrollpage
 
  if(window.innerWidth>425){
-  scrollpage=Math.ceil(scroll/850)
+  scrollpage=Math.ceil(scroll/750)
  }else{
  scrollpage=Math.ceil(scroll/600)
  }

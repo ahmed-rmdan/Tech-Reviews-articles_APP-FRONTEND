@@ -19,7 +19,7 @@ export default  async function Postpg({params}:{params:{id:string}}) {
                  <Review content={data.review.content} date={new Date(data.review.createdAt)}
                   title={data.review.title} description={data.review.description} 
                                 image={data.review.mainimage} userscore={3} score={data.review.score}
-                                 summary={data.review.summary} likes={data.review.likes.length} views={data.review.views} comments={data.review.comments.length} id={data.review._id} ></Review>      
+                                 summary={data.review.summary} likes={data.review.likes} views={data.review.views} comments={data.review.comments.length} id={data.review._id} ></Review>      
                 <Maincomment></Maincomment>
     </section>
   );

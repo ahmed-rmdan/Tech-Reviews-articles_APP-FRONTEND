@@ -25,3 +25,7 @@ export type review={
     createdAt:string,
     _id:string
 }
+export type liked={
+    item:post|review,
+    kind:'post'|'review'
+}

@@ -37,7 +37,9 @@ import { SearchHeader } from "./searchheader";
 
 import { useSession } from "next-auth/react";
 
-
+import { getlikesandsaves } from "../global/getlikesandsaves";
+import { useAppDispatch } from "@/state/hook";
+import { useractions } from "@/state/state";
 
 export function Header(){
     const router=useRouter()
@@ -46,6 +48,7 @@ const [menu,setmenu]=useState<boolean>(false)
 const [search,setsearch]=useState<boolean>(false)
 const [sign,setsign]=useState<boolean>(false)
 const [profile,setprofile]=useState<boolean>(false)
+const dispatch=useAppDispatch()
 const {status,data}=useSession()
 
 useEffect(()=>{
@@ -55,8 +58,17 @@ setwidth(window.screen.width)
      setwidth(size)
 
   })
+  async function setstate(){
+        const id=data?.user.id
+         const Data=await getlikesandsaves(id as string)
+         dispatch(useractions.setlikesandsaves({likes:Data.likes,saves:Data.saves}))
 
-},[width])
+  }
+  if(data){
+    setstate()
+  }
+  
+},[width,data])
 
 function handleclick(){
     setmenu(prev=>!prev)
@@ -71,6 +83,11 @@ function handlesearch(){
 
 
 }
+if(data){
+
+  
+}
+
 
 if(width>=768){
 return(

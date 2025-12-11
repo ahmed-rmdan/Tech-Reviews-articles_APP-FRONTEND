@@ -18,11 +18,17 @@ import { useState } from "react"
 import Image from "next/image"
 import googlelogo from '@/public/Google Logo Icon Gsuite HD.jpeg'
 import { useRouter } from "next/navigation"
+import { useSession } from "next-auth/react"
+import { useAppDispatch } from "@/state/hook"
+import { useractions } from "@/state/state"
+import { toast } from "sonner"
 export function CardLogin() {
 const router=useRouter()
+const dispatch=useAppDispatch()
 const [loading,setloading]=useState<boolean>(false)
 const [error,seterror]=useState<string>('')
 const [iserror,setiserror]=useState<boolean>(false)
+const {data:session}=useSession()
 
 async function onsubmit(e:React.FormEvent<HTMLFormElement>){
   e.preventDefault()
@@ -42,13 +48,11 @@ async function onsubmit(e:React.FormEvent<HTMLFormElement>){
   }
 
 )
-
      if(!res?.ok){
-        throw new Error(res?.error as string)
- 
-    
+        throw new Error(res?.error as string)    
             }
 
+            
 setloading(false)
 setiserror(false)
 seterror('')

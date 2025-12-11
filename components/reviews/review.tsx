@@ -10,18 +10,19 @@ import { House } from 'lucide-react';
 import { Newspaper } from 'lucide-react';
 import { Bookmark } from 'lucide-react';
 import { Star } from 'lucide-react';
-
+import { Like } from "../global/like";
+import { Save } from "../global/save";
 let arr=[1,2,3,4,5,6,7,8,9,10]
 
 export const Review:React.FC<{title:string,description:string,image:string,date:Date , content:string,summary:string,
-  score:number,userscore:number,views:number,likes:number , comments:number,id:string}>=(props)=>{
+  score:number,userscore:number,views:number,likes:string[] , comments:number,id:string}>=(props)=>{
     
 
 
 
 return(
            <div className=" h-[23%] w-full sm:w-[90%] xl:w-[60%]    bg-white relative flex flex-col items-start justify-start rounded-[5px] text-black p-4 ">
-                            <div className="  sm:w-[25%] lg:w-[23%] flex flex-row justify-around items-center   text-[3em] text-gray-600">
+                            <div className="   flex flex-row justify-around items-center   text-[3.5em] text-gray-600">
                                  <Link className="flex flex-row items-center justify-center gap-[5px] hover:underline" href={'/'}> 
                                        <House size={'1.5em'} ></House>  Home
                                   </Link>
@@ -32,12 +33,12 @@ return(
                                   <ChevronRight size={'1.5em'}></ChevronRight>
                                   <p className="hover:underline hover:cursor-pointer"> {props.title}</p>
                             </div>
-                            <Bookmark size={'8.5em'} className="self-end mr-[30px] mb-[15px] hover:cursor-pointer"></Bookmark>
+                            <Save id={props.id} type='review' ></Save>
                               <div className=" w-[38%] sm:w-[20%] flex flex-row justify-around gap-[3px] self-end text-[3.5em]">
                                           
                                               <div className="flex flex-row items-center font-bold  gap-[2px] sm:gap-[5px]">
                                               <ThumbsUp size={'1.5em'}></ThumbsUp>
-                                               {props.likes}
+                                               {props.likes.length}
                                                   </div>
                                                   <div className="flex flex-row items-center font-bold   gap-[2px] sm:gap-[5px]">
                                                         <MessageCircle size={'1.5em'}></MessageCircle>
@@ -82,21 +83,15 @@ return(
                                                    return <button className="w-[50px] h-[50px] rounded-[180%]  text-[5em] border-3 text-main hover:cursor-pointer
                                                      hover:border-gray-700 hover:text-gray-700 border-[#cb1b16] font-bold ">
                                                         {elm}
-                                                        </button>} )}
-                                                        
-                                    
-                                           
+                                                        </button>} )}                                                                                                   
                                             </div>
                                              
                                        </div>
                                 
                                </div>
 
-
-
-                              <div className="w-[25%] items-center justify-center flex flex-row text-[5em] mt-[30px] gap-[8px] ">
-                                <ThumbsUp size={'1.5em'} fill="black" className="hover:cursor-pointer"></ThumbsUp>
-                                                <span className="text-center font-bold">{props.likes}</span>
+                              <div className="w-[25%] items-center justify-center flex flex-row text-center text-[5em] mt-[30px] gap-[8px] ">
+                                 <Like type='review' id={props.id} likes={props.likes}></Like>
                               </div>
                                                                                                                       
                                                       

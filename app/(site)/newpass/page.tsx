@@ -62,7 +62,6 @@ toast.success('password has been updated')
     setloading(false)
   }
 
-
 }
 
   return(

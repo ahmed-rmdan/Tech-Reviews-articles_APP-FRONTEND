@@ -6,6 +6,7 @@ import { ThumbsUp } from 'lucide-react';
 import { MessageCircle } from 'lucide-react';
 import Link from "next/link";
 
+
 export const ReviewItem:React.FC<{title:string,description:string,image:string,score:number,views:number,comments:number,likes:number,date:Date,id:string}>=(props)=>{
     
 
