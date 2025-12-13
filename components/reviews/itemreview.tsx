@@ -41,7 +41,7 @@ return(
                                   {props.description}
                                  </p>
                            </div>
-                            <p className="w-[95%] h-[10px]  flex  justify-end text-[4em]  "> {props.date.toLocaleDateString('en-US')}</p>
+                            <p className="w-[95%] h-[10px]  flex  justify-end text-[4em]  "> {!props.date?'':props.date.toLocaleDateString('en-US')}</p>
                           <div className="h-[30%] flex flex-row justify-start text-[5em] gap-[5%] items-center">
                                  <div className="flex flex-row items-center font-bold  gap-[8px]">
                                         <Eye size={'1.5em'}></Eye>

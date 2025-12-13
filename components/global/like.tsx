@@ -8,6 +8,7 @@ import { useAppSelector } from "@/state/hook"
 import { useState } from "react"
 import { useAppDispatch } from "@/state/hook"
 import { useractions } from "@/state/state"
+import { liking } from "@/actions/actions"
 export function Like({likes,id,type}:{likes:string[],id:string,type:'post'|'review'}){
 const dispatch=useAppDispatch()
 const {data,update}=useSession()
@@ -31,21 +32,12 @@ async function  addlike(){
      dispatch(useractions.addlike({id:id,type:'like'}))
      setlikesnum(prev=>prev+1)
     }
-  const res=await fetch(`http://localhost:5000/users/addlike`,{ 
-                     method:'POST'    
-                     , 
-                    cache:'no-store',
-                    headers:{'Content-Type': 'application/json'} ,
-                    body:JSON.stringify({id:data?.user.id,
-                        itemid:id,
-                        kind:type,
-                        
-                    })       
-                           }
-                        )
+
+const res=await liking(data?.user.id as string,id,type)
+
     
      if(!res.ok){
-        toast.warning('failed tto connect')
+        toast.warning('failed to connect')
         return
      }
      console.log('sucess')                           

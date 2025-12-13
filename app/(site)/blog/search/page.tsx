@@ -41,16 +41,14 @@ useEffect(()=>{
             console.log(newposts)
           setposts(newposts)
             setloading(false)   
-         }
-   
-       
-          
+         }         
   }
 
 getscrollpages()
 
 
 },[page])
+
 
 useEffect(()=>{
 
@@ -69,11 +67,7 @@ useEffect(()=>{
  }
 
 setpage(prev=>prev<scrollpage?prev+1:prev)
-
-
-
  return ()=>{}
-
 
 },[scroll])
 

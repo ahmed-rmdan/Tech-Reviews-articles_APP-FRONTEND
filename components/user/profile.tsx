@@ -76,10 +76,9 @@ const selectedfile=ev.target.files[0]
        const errmessg= err instanceof Error ?err.message:'somthing went wrong'
         console.log(errmessg)
      }
-  
-
 
 }
+
 
   return (
     <Card className="w-full relative max-w-sm rounded-2xl">
@@ -109,12 +108,12 @@ const selectedfile=ev.target.files[0]
        </div>
          <div className="flex flex-row gap-[7px] items-center">
         <Bookmark color="#cb1b16"></Bookmark>
-           <Link href={'/user/saved'} className="text-main text-[4.5em] font-bold hover:underline"> Saved</Link>
+           <Link href={`/user/saved?id=${data?.user.id}`} className="text-main text-[4.5em] font-bold hover:underline"> Saved</Link>
             
        </div>
          <div className="flex flex-row gap-[7px]">
         <ThumbsUp color="#cb1b16"></ThumbsUp>
-           <Link href={'/user/liked'} className="text-main text-[4.5em] font-bold hover:underline"> Liked</Link>
+           <Link href={`/user/liked?id=${data?.user.id}`} className="text-main text-[4.5em] font-bold hover:underline"> Liked</Link>
             
        </div>       
          <div className="flex flex-row items-center gap-[7px]">

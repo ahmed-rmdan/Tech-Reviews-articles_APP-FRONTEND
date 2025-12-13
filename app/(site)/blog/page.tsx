@@ -75,8 +75,7 @@ console.log(posts)
 
     <section className=" w-full  flex flex-col items-center bg-[#e5e7eb] text-[2.5px] sm:text-[3px]   lg:text-[3.5px]  xl:text-[4px] 2xl:text-[4.5px]   " >
 {           loading&&  <div className=" sticky  top-[45%] flex justify-center items-center w-[100px] h-[90px] sm:w-[150px] rounded-2xl sm:h-[120px] bg-white z-[20000]">
-                    <Spinner className="size-18 sticky " color={'red'} />
-                  
+                    <Spinner className="size-18 sticky " color={'red'} />                 
                     </div>   }
       <div className="flex flex-row w-full sm:w-[85%] lg:w-[70%] 2xl:w-[55%] justify-center items-center h-[55px] sm:h-[80px] gap-[11px] sm:gap-[20px]">
             <Searchinput type="searchposts"></Searchinput>
@@ -89,12 +88,8 @@ console.log(posts)
                           return       <ItemPost watches={elm.views} date={new Date(elm.createdAt)} likes={elm.likes.length} comments={elm.comments.length}
                            id={elm._id} title={elm.title} description={elm.description}
                                 image={elm.mainimage}></ItemPost>
-                         })}
-                     
-                      </div>
-
-                  
-                                   
+                         })}                     
+                      </div>                                                   
            </div>
            
  

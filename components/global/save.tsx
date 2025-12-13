@@ -9,6 +9,10 @@ import { useState } from "react"
 import { useAppDispatch } from "@/state/hook"
 import { useractions } from "@/state/state"
 import { Bookmark } from "lucide-react"
+
+import { saveing } from "@/actions/actions"
+
+
 export function Save({id,type}:{id:string,type:'post'|'review'}){
 const dispatch=useAppDispatch()
 const {data,update}=useSession()
@@ -34,24 +38,14 @@ async function  addlike(){
 
      dispatch(useractions.addlike({id:id,type:'save'}))  
 
-  const res=await fetch(`http://localhost:5000/users/addsave`,{ 
-                     method:'POST'    
-                     , 
-                    cache:'default',
-                    headers:{'Content-Type': 'application/json'} ,
-                    body:JSON.stringify({id:data?.user.id,
-                        itemid:id,
-                        kind:type,
-                        
-                    })       
-                           }
-                        )
+
+      const  res=await saveing(data?.user.id as string,id,type)                  
     
      if(!res.ok){
         toast.warning('failed to connect')
         return
      }
-                      
+               
 
 }
 
