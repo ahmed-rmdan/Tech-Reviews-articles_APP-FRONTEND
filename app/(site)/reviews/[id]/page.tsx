@@ -17,9 +17,9 @@ export default  async function Postpg({params}:{params:{id:string}}) {
     <section className=" w-full flex flex-col items-center bg-[#e5e7eb] text-[3px] sm:text-[3px]   lg:text-[3.5px]  xl:text-[4px] 2xl:text-[4.5px] p-3  " >
               
                  <Review content={data.review.content} date={new Date(data.review.createdAt)}
-                  title={data.review.title} description={data.review.description} 
-                                image={data.review.mainimage} userscore={3} score={data.review.score}
-                                 summary={data.review.summary} likes={data.review.likes} views={data.review.views} comments={data.review.comments.length} id={data.review._id} ></Review>      
+                  title={data.review.title} 
+                                image={data.review.mainimage}  score={data.review.score}
+                                 summary={data.review.summary} likes={data.review.likes}  comments={data.review.comments.length} id={data.review._id} ></Review>      
                 <Maincomment></Maincomment>
     </section>
   );
